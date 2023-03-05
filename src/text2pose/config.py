@@ -14,7 +14,6 @@ import os
 MAIN_DIR = os.path.realpath(__file__)
 MAIN_DIR = os.path.dirname(os.path.dirname(os.path.dirname(MAIN_DIR)))
 
-
 ################################################################################
 # Output dir for experiments
 ################################################################################
