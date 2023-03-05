@@ -11,24 +11,23 @@
 
 # default
 import os
-MAIN_DIR = os.path.realpath(__file__)
-MAIN_DIR = os.path.dirname(os.path.dirname(os.path.dirname(MAIN_DIR)))
+MAIN_DIR = ''
 
 ################################################################################
 # Output dir for experiments
 ################################################################################
 
-GENERAL_EXP_OUTPUT_DIR = MAIN_DIR + '/experiments'
+GENERAL_EXP_OUTPUT_DIR = '/content/experiments'
 
 
 ################################################################################
 # Data
 ################################################################################
 
-POSESCRIPT_LOCATION = MAIN_DIR + '/data/PoseScript/posescript_release'
+POSESCRIPT_LOCATION = '/content/drive/MyDrive/posescript_release'
 
 ### pose config
-SMPL_BODY_MODEL_PATH = MAIN_DIR + '/data/smplh_amass_body_models'
+SMPL_BODY_MODEL_PATH = '/content/drive/MyDrive/smplh'
 SMPLH_NEUTRAL_BM = f'{SMPL_BODY_MODEL_PATH}/neutral/model.npz'
 n_betas = 16
 NB_INPUT_JOINTS = 52
@@ -82,7 +81,7 @@ GLOVE_DIR = MAIN_DIR + '/tools/torch_models/glove' # or None
 normalize_model_path = lambda model_path, seed_value: "/".join(model_path.split("/")[:-2]) + f"/seed{seed_value}/"+ model_path.split("/")[-1]
 
 # shortname & model paths are stored in shortname_2_model_path.json (which can be updated by some scripts)
-with open("shortname_2_model_path.txt", "r") as f:
+with open("/content/posescript/src/text2pose/shortname_2_model_path.txt", "r") as f:
     # each line has the following format: <shortname><4 spaces><model path with a {seed} field>
     shortname_2_model_path = [l.split("    ") for l in f.readlines() if len(l.strip())]
     shortname_2_model_path = {l[0]:normalize_model_path(l[1].strip(), '{seed}') for l in shortname_2_model_path}
